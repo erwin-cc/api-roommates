@@ -1,0 +1,22 @@
+{
+  "gastos": [
+    {
+      "roommate": "Keira Green",
+      "descripcion": "Paseos",
+      "monto": 12000,
+      "id": "89140b9b"
+    },
+    {
+      "roommate": "Albane Roux",
+      "descripcion": "Aseo",
+      "monto": 15000,
+      "id": "375a18b0"
+    },
+    {
+      "roommate": "Eelis Rintala",
+      "descripcion": "Cuenta Luz",
+      "monto": 20000,
+      "id": "ad51fc5c"
+    }
+  ]
+}

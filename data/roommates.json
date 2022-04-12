@@ -1,0 +1,22 @@
+{
+  "roommates": [
+    {
+      "id": "746abac2",
+      "nombre": "Keira Green",
+      "recibe": 4000,
+      "debe": -11667
+    },
+    {
+      "id": "a9773ddf",
+      "nombre": "Albane Roux",
+      "recibe": 5000,
+      "debe": -10667
+    },
+    {
+      "id": "782faa38",
+      "nombre": "Eelis Rintala",
+      "recibe": 6667,
+      "debe": -9000
+    }
+  ]
+}
