@@ -4,7 +4,11 @@ const { nuevoRoommate, guardarRoommate } = require('./assets/js/roommates.js')
 const { agregarGasto, editGasto, deleteGasto, calcular } = require('./assets/js/gastos.js')
 const enviarCorreo = require("./assets/js/correo.js")
 
-app.listen(3000, () => console.log("Servidor activo en http://localhost:3000"))
+let port = process.env.PORT
+if (port == null || port == "") {
+    port = 3000;
+}
+app.listen(port, () => console.log("Servidor activo en http://localhost:3000"))
 
 app.use(express.json())
 
