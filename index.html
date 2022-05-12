@@ -149,12 +149,14 @@
       let gastoEditing = null;
 
       const getRoommates = async () => {
-        const res = await fetch("http://localhost:3000/roommates");
+        //const res = await fetch("http://localhost:3000/roommates");
+        const res = await fetch("https://roommates-tdigital.herokuapp.com/roommates");
         const data = await res.json();
         roommates = data.roommates;
       };
       const getGastos = async () => {
-        const res = await fetch("http://localhost:3000/gastos");
+        //const res = await fetch("http://localhost:3000/gastos");
+        const res = await fetch("https://roommates-tdigital.herokuapp.com/gastos");
         const data = await res.json();
         gastos = data.gastos;
       };
@@ -201,7 +203,8 @@
       };
 
       const nuevoRoommate = () => {
-        fetch("http://localhost:3000/roommate", { method: "POST" })
+        //fetch("http://localhost:3000/roommate", { method: "POST" })
+        fetch("https://roommates-tdigital.herokuapp.com/roommate", { method: "POST" })
           .then((res) => res.json())
           .then(() => {
             imprimir();
@@ -212,7 +215,8 @@
         const roommateSelected = $("#roommatesSelect").val();
         const descripcion = $("#descripcion").val();
         const monto = Number($("#monto").val());
-        await fetch("http://localhost:3000/gasto", {
+        //await fetch("http://localhost:3000/gasto", {
+        await fetch("https://roommates-tdigital.herokuapp.com/gasto", {
           method: "POST",
           headers: {
             'content-type':'application/json'
@@ -227,7 +231,8 @@
       };
 
       const deleteGasto = async (id) => {
-        await fetch("http://localhost:3000/gasto?id=" + id, {
+        //await fetch("http://localhost:3000/gasto?id=" + id, {
+        await fetch("https://roommates-tdigital.herokuapp.com/gasto?id=" + id, {
           method: "DELETE",
         });
         imprimir();
@@ -237,7 +242,8 @@
         const roommateSelected = $("#roommatesSelectModal").val();
         const descripcion = $("#descripcionModal").val();
         const monto = Number($("#montoModal").val());
-        await fetch("http://localhost:3000/gasto?id=" + gastoEditing, {
+        //await fetch("http://localhost:3000/gasto?id=" + gastoEditing, {
+        await fetch("https://roommates-tdigital.herokuapp.com/gasto?id=" + gastoEditing, {
           method: "PUT",
           headers: {
             'content-type':'application/json'
