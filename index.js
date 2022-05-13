@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const { nuevoRoommate, guardarRoommate } = require('./assets/js/roommates.js')
+const { nuevoRoommate, guardarRoommate, deleteRoommate } = require('./assets/js/roommates.js')
 const { agregarGasto, editGasto, deleteGasto, calcular } = require('./assets/js/gastos.js')
 const enviarCorreo = require("./assets/js/correo.js")
 
@@ -73,7 +73,7 @@ app.delete("/gasto", async (req, res) => {
     try {
         res.setHeader('content-type','application/json')
         const {id} = req.query
-        deleteGasto(id)
+        await deleteGasto(id)
         await calcular()
         res.status(200).send({"mensaje":"Registro eliminado con éxito"})
     } catch (error) {
@@ -92,3 +92,15 @@ app.get("/roommates", (req,res) => {
 //    (OK)
 // 6. Enviar un correo electrónico a todos los roommates cuando se registre un nuevo gasto. Se recomienda agregar 
 //    a la lista de correos su correo personal para verificar esta funcionalidad. (Opcional)
+
+app.delete("/usuario", async (req, res) => {
+    try {
+        res.setHeader('content-type','application/json')
+        const {id} = req.query
+        await deleteRoommate(id)
+        await calcular()
+        res.status(200).send({"mensaje":"Registro eliminado con éxito"})
+    } catch (error) {
+        res.status(500).send({"error":error})
+    }
+})

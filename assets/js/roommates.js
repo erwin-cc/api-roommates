@@ -20,10 +20,20 @@ const nuevoRoommate = async () => {
 
 const guardarRoommate = async (newRoommate) => {
     const roommatesJSON = await fs.readFile(`./data/roommates.json`, 'utf8')
-    const roommatesData  = JSON.parse(roommatesJSON)
+    const roommatesData  = await JSON.parse(roommatesJSON)
     roommatesData.roommates.push(newRoommate)
-    
     await fs.writeFile(`./data/roommates.json`, JSON.stringify(roommatesData, null, 2), 'utf8')
 }
 
-module.exports = {nuevoRoommate, guardarRoommate}
+const deleteRoommate = async (id) => {
+    const roommatesJSON = await fs.readFile('./data/roommates.json', 'utf8')
+    const roommatesData = JSON.parse(roommatesJSON)
+    console.log(roommatesData)
+    const roommatesDataDel = roommatesData.roommates.filter(roommate => roommate.id != id)
+    roommatesData.roommates = roommatesDataDel
+    console.log(roommatesData)
+
+    await fs.writeFile(`./data/roommates.json`, JSON.stringify(roommatesData, null, 2), 'utf8')
+}
+
+module.exports = {nuevoRoommate, guardarRoommate, deleteRoommate}
